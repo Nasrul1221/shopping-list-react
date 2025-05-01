@@ -1,0 +1,13 @@
+.App {
+    display: flex;
+    justify-content: center;
+    padding: 4em 5em;
+}
+
+.right-side {
+    width: 40%;
+    height: 400px;
+    max-width: 500px;
+    background: aqua;
+}
+
