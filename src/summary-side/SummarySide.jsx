@@ -3,18 +3,20 @@ import './styles.css';
 import {CartContext} from "../CardProvider.jsx";
 
 function SummarySide() {
+    const [productQuantity, setProductQuantity] = React.useState(0);
     const productsInCart = useContext(CartContext).productsInCart;
-    const list = productsInCart.map((product, index) => {
-        return (
-            <p key={index}>{product.title}</p>
-        )
-    })
+
+    React.useEffect(() => {
+        productsInCart.forEach(() => {
+            setProductQuantity(productQuantity + 1);
+        })
+    }, [productsInCart]);
 
     return (
-        <div>
+        <div className={'SummarySide'}>
             <h1>Cart</h1>
             <div>
-                {list}
+                <p>Quantity: {productQuantity}</p>
             </div>
         </div>
     )

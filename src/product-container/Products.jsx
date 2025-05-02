@@ -6,7 +6,7 @@ import {CartContext} from "../CardProvider.jsx";
 function Products() {
     const [products, setProducts] = React.useState([])
     const [loading, setLoading] = React.useState(false);
-    const { productsInCart, setProductsInCart } = useContext(CartContext);
+    const { setProductsInCart } = useContext(CartContext);
 
     const addToCart = (product) => {
         setProductsInCart(prev => [...prev, product]);
@@ -42,7 +42,7 @@ function Products() {
     }
 
     return (
-        <div className={'grid-container'}>
+        <div className={'Products'}>
             {products.map((product) => (
                 <Card
                     key={product.id}

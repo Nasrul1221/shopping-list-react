@@ -1,13 +1,25 @@
 .App {
-    display: flex;
-    justify-content: center;
-    padding: 4em 5em;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 2em;
+    gap: 2em;
 }
 
-.right-side {
-    width: 40%;
-    height: 400px;
-    max-width: 500px;
-    background: aqua;
+@media (max-width: 700px) {
+    .App {
+        grid-template-columns: 1fr 2fr;
+    }
 }
 
+@media (max-width: 500px) {
+    .App {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .Products {
+        order: 2;
+    }
+    .SummarySide {
+        order: 1;
+    }
+}
