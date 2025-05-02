@@ -5,12 +5,14 @@ import './app.css'
 
 function App() {
     return (
-        <CartProvider>
-            <div className="App">
-                <Products />
-                <SummarySide />
-            </div>
-        </CartProvider>
+        <>
+            <CartProvider>
+                <div className="App">
+                    <Products />
+                    <SummarySide />
+                </div>
+            </CartProvider>
+        </>
     )
 }
 

@@ -3,26 +3,24 @@ import './styles.css';
 import {CartContext} from "../CardProvider.jsx";
 
 function SummarySide() {
-    const [productList, setProductList] = React.useState([]);
+    const [quantity, setQuantity] = React.useState(0);
+    const [total, setTotal] = React.useState(0);
     const productsInCart = useContext(CartContext).productsInCart;
 
     React.useEffect(() => {
-        const list = productsInCart.map((product) => {
-            return (
-                <div className={'summary-object'}>
-                    <img src={product.image} alt={product.name} className={'summary-image'} />
-                    <h2 className={'summary-object-title'}>{product.title}</h2>
-                </div>
-            )
+        productsInCart.forEach((product) => {
+            setQuantity(quantity + 1);
+            setTotal(total + product.price);
         })
-        setProductList(list);
     }, [productsInCart]);
 
     return (
-        <div className={'SummarySide'}>
-            <h1>Cart</h1>
+        <div className="SummarySide">
+            <h1>🛒 Cart</h1>
             <div>
-                {productList}
+                <p><strong>Quantity:</strong> {quantity}</p>
+                <p><strong>Total:</strong> ${total.toFixed(2)}</p>
+                <button className={'more-info-button'}>More info</button>
             </div>
         </div>
     )

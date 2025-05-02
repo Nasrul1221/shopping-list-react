@@ -4,6 +4,19 @@
     gap: 2em;
 }
 
+.pop-up {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #333333;
+    padding: .5em 1em;
+    transition: opacity 0.3s;
+}
+
+.pop-up p {
+    color: white;
+}
+
 @media (max-width: 1000px) {
     .Products {
         grid-template-columns: 1fr 1fr 1fr;

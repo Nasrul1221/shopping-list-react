@@ -1,21 +1,48 @@
 .SummarySide {
-    background-color: #f8f9fa;
+    background: #fff;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: auto;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    margin: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    align-self: flex-start;
 }
 
-.summary-object {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-top: 1px solid #d2d2d2;
-    padding: 10px 0;
+
+.SummarySide h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f08080;
+    padding-bottom: 8px;
+    color: #b22222;
 }
 
-.summary-image {
-    width: 30px;
+.SummarySide p {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
-.summary-object-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 10px;
+.more-info-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.more-info-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 500px) {
+    .SummarySide {
+        margin: 8px;
+        padding: 16px;
+    }
 }

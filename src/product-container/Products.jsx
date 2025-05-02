@@ -6,10 +6,12 @@ import {CartContext} from "../CardProvider.jsx";
 function Products() {
     const [products, setProducts] = React.useState([])
     const [loading, setLoading] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
     const { setProductsInCart } = useContext(CartContext);
 
     const addToCart = (product) => {
         setProductsInCart(prev => [...prev, product]);
+        setVisible(true);
     };
 
     useEffect(() => {
@@ -33,6 +35,16 @@ function Products() {
         fetchProducts()
     }, [])
 
+    useEffect(() => {
+        if (visible) {
+            const timer = setTimeout(() => {
+                setVisible(false);
+            }, 2000); // 2 seconds
+
+            return () => clearTimeout(timer);
+        }
+    }, [visible]);
+
     if (loading) {
         return (
             <div className="loading">
@@ -52,6 +64,9 @@ function Products() {
                     addToCard={() => addToCart(product)}
                 />
             ))}
+            <div className={'pop-up'} style={{opacity: visible ? 1 : 0}}>
+                <p>Added to cart ✅</p>
+            </div>
         </div>
     )
 }
